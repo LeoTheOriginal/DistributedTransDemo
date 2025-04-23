@@ -1,0 +1,8 @@
+{
+  "ConnectionStrings": {
+    "CentralDB": "Data Source=127.0.0.1,1433;Initial Catalog=BankCentral;User ID=sa;Password=…;Encrypt=False;TrustServerCertificate=False;Connect Timeout=30;",
+    "Branch1DB": "Data Source=127.0.0.1,1433;Initial Catalog=Branch1DB;User ID=sa;Password=…;Encrypt=False;TrustServerCertificate=False;Connect Timeout=30;",
+    "Branch2DB": "Data Source=127.0.0.1,1433;Initial Catalog=Branch2DB;User ID=sa;Password=…;Encrypt=False;TrustServerCertificate=False;Connect Timeout=30;"
+
+  }
+}
