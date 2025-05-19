@@ -1,16 +1,48 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-  </PropertyGroup>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TransDemo.Data\TransDemo.Data.csproj" />
-    <ProjectReference Include="..\TransDemo.Logic\TransDemo.Logic.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
+	<ItemGroup>
+		<!-- LiveChartsCore dla .NET 8 -->
+		<PackageReference Include="FluentWPF" Version="0.10.2" />
+		<PackageReference Include="LiveChartsCore.SkiaSharpView" Version="2.0.0-rc5.4" />
+		<PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc5.4" />
+		<PackageReference Include="MahApps.Metro" Version="3.0.0-rc0516" />
+		<PackageReference Include="MaterialDesignColors" Version="5.2.2-ci998" />
+		<PackageReference Include="MaterialDesignThemes" Version="5.2.2-ci998" />
+		<PackageReference Include="MaterialDesignThemes.MahApps" Version="5.2.2-ci998" />
+		<!-- Konfiguracja JSON -->
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.0-preview.4.25258.110" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0-preview.4.25258.110" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" />
+		<PackageReference Include="Prism.Core" Version="9.0.537" />
+		<PackageReference Include="Prism.Unity" Version="9.0.537" />
+		<PackageReference Include="Prism.Wpf" Version="9.0.537" />
+		<!-- SSH.NET (jeśli potrzebujesz) -->
+		<PackageReference Include="SSH.NET" Version="2025.0.0" />
+		<PackageReference Include="Syncfusion.SfGrid.WPF" Version="29.2.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Projekty współdzielone -->
+		<ProjectReference Include="..\TransDemo.Data\TransDemo.Data.csproj" />
+		<ProjectReference Include="..\TransDemo.Logic\TransDemo.Logic.csproj" />
+	</ItemGroup>
+
+	<!-- Nie musisz ręcznie dodawać/usuwać plików XAML i code-behind:
+       SDK automatycznie traktuje *.xaml jako Page i *.xaml.cs jako Compile -->
 </Project>
