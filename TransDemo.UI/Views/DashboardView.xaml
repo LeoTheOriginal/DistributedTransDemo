@@ -4,30 +4,80 @@
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
-            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             xmlns:md="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
             mc:Ignorable="d"
             d:DesignHeight="350" d:DesignWidth="600">
 
-   <md:Card 
-     Padding="16"
-     Margin="16"
-     Background="{DynamicResource MaterialDesignPaper}">
+    <Grid Margin="16">
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button
+        Command="{Binding RefreshCommand}"
+        Content="Odśwież"
+        Style="{StaticResource MaterialDesignOutlinedButton}"
+        Margin="4"/>
+            <Button
+        Command="{Binding RunDemoCommand}"
+        Content="Demo Transaction"
+        Style="{StaticResource MaterialDesignRaisedButton}"
+        Margin="4"/>
+        </StackPanel>
 
-       <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <Grid Margin="0,48,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <Border Grid.Row="1"
-             Background="{DynamicResource MaterialDesignPaper}"
-             CornerRadius="8"
-             Padding="8">
-               <lvc:PieChart Series="{Binding BalanceDistributionSeries}"
-                     LegendPosition="Right"
-                     Background="Transparent"/>
-           </Border>
-       </Grid>
-   </md:Card>
+
+            <md:Card Grid.Column="0" Margin="0,0,8,0">
+                <StackPanel>
+                    <TextBlock
+            Text="Historia oddziału 1"
+            Style="{StaticResource MaterialDesignBodySmallTextBlock}"
+            Margin="8"/>
+                    <DataGrid
+            ItemsSource="{Binding Branch1History}"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            RowHeaderWidth="0"
+            Margin="8">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                Header="Data"
+                Binding="{Binding CreatedAt, StringFormat=G}" />
+                            <DataGridTextColumn
+                Header="Opis"
+                Binding="{Binding Info}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </md:Card>
+
+
+            <md:Card Grid.Column="1" Margin="8,0,0,0">
+                <StackPanel>
+                    <TextBlock
+            Text="Historia oddziału 2"
+            Style="{StaticResource MaterialDesignBodySmallTextBlock}"
+            Margin="8"/>
+                    <DataGrid
+            ItemsSource="{Binding Branch2History}"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            RowHeaderWidth="0"
+            Margin="8">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                Header="Data"
+                Binding="{Binding CreatedAt, StringFormat=G}" />
+                            <DataGridTextColumn
+                Header="Opis"
+                Binding="{Binding Info}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </md:Card>
+        </Grid>
+    </Grid>
 </UserControl>

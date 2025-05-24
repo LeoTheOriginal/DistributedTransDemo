@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
 
-public class AppSettings
+namespace TransDemo.UI.Models
 {
-    // od teraz jedynie Dictionary<string,string>
-    public Dictionary<string, string> ConnectionStrings { get; set; }
+    public class AppSettings
+    {
 
-    public static AppSettings Load(string path)
-        => JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(path))!;
+        public required Dictionary<string, string> ConnectionStrings { get; set; }
 
-    public void Save(string path)
-        => File.WriteAllText(path,
-            JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true }));
+        public static AppSettings Load(string path)
+            => JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(path))!;
+
+        public void Save(string path)
+            => File.WriteAllText(path,
+                JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true }));
+    }
 }
-

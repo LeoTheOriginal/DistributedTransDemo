@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Input;
 using Microsoft.Data.SqlClient;
 using TransDemo.UI.Models;
+using System.Data;
 
 namespace TransDemo.UI.ViewModels
 {
@@ -20,9 +21,28 @@ namespace TransDemo.UI.ViewModels
             set => SetProperty(ref _connections, value);
         }
 
+        public ObservableCollection<string> AvailableDatabases { get; } = new ObservableCollection<string>();
+
         public ICommand TestConnectionCommand { get; }
         public ICommand ApplyCommand { get; }
         public ICommand CancelCommand { get; }
+
+        private DbConnectionSetting _selectedConnection;
+        public DbConnectionSetting? SelectedConnection
+        {
+            get => _selectedConnection;
+            set
+            {
+                if (SetProperty(ref _selectedConnection, value) && value != null)
+                {
+                    // 3) przy każdej zmianie połączenia przeładuj listę baz
+                    LoadDatabasesForConnection(value);
+                }
+            }
+        }
+
+        public ICommand AddConnectionCommand { get; }
+        public ICommand RemoveConnectionCommand { get; }
 
         public SettingsViewModel()
         {
@@ -48,6 +68,8 @@ namespace TransDemo.UI.ViewModels
             }).ToList();
 
             Connections = new ObservableCollection<DbConnectionSetting>(list);
+            // 4) ustaw domyślone SelectedConnection i od razu załaduj jego bazy
+            SelectedConnection = Connections.FirstOrDefault();
 
             // 3) Komendy
             TestConnectionCommand = new RelayCommand<DbConnectionSetting>(async c =>
@@ -84,6 +106,31 @@ namespace TransDemo.UI.ViewModels
             });
 
             CancelCommand = new RelayCommand<Window>(w => w?.Close());
+
+            AddConnectionCommand = new RelayCommand<object>(_ =>
+            {
+                // Dodajemy nowy, pusty entry
+                var newConn = new DbConnectionSetting
+                {
+                    Key = "NewConnection",
+                    Server = "",
+                    Database = "",
+                    UserName = "",
+                    Password = "",
+                    RememberPassword = false,
+                    KeepConnectionAlive = false,
+                    Encrypt = false,
+                    TrustServerCertificate = false
+                };
+                Connections.Add(newConn);
+            });
+
+            RemoveConnectionCommand = new RelayCommand<DbConnectionSetting>(conn =>
+            {
+                if (conn != null)
+                    Connections.Remove(conn);
+            }, conn => conn != null);
+
         }
 
         private async Task TestConnectionAsync(DbConnectionSetting c)
@@ -115,6 +162,38 @@ namespace TransDemo.UI.ViewModels
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Error);
             }
+        }
+
+        /// <summary>
+        /// Ładuje listę nazw baz z serwera wskazanego w c.Server.
+        /// </summary>
+        private void LoadDatabasesForConnection(DbConnectionSetting c)
+        {
+            AvailableDatabases.Clear();
+            // zbuduj łańcuch do master
+            var sb = new SqlConnectionStringBuilder
+            {
+                DataSource = c.Server,
+                InitialCatalog = "master",
+                UserID = c.UserName,
+                Password = c.Password,
+                Encrypt = c.Encrypt,
+                TrustServerCertificate = c.TrustServerCertificate,
+                ConnectTimeout = 5
+            };
+            using var conn = new SqlConnection(sb.ConnectionString);
+            conn.Open();
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT name FROM sys.databases ORDER BY name";
+            using var rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+                AvailableDatabases.Add(rdr.GetString(0));
+
+            // ustaw domyślnie na tę, którą mamy w konfiguracji
+            if (AvailableDatabases.Contains(c.Database))
+                c.Database = c.Database;
+            else if (AvailableDatabases.Count > 0)
+                c.Database = AvailableDatabases[0];
         }
     }
 }

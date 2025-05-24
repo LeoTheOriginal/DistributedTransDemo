@@ -6,6 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Style="{StaticResource MaterialDesignWindow}"
         Title="Distributed Transaction Dashboard"
+        WindowStartupLocation="CenterScreen"
         Height="700" Width="1200">
     <!-- DataContext ustawiany w code-behind -->
     <Grid Margin="10">

@@ -8,10 +8,12 @@ namespace TransDemo.UI.ViewModels
         public override string Header => "Dashboard";
         public override object Content { get; }
 
-        public DashboardTabViewModel(DistributedTransactionService svc)
+        public DashboardTabViewModel(DashboardView view, DashboardViewModel vm)
         {
-            // tutaj w przyszłości możesz przekazać dane do DashboardViewModel
-            Content = new DashboardView();
+            view.DataContext = vm;
+            Content = view;
         }
+
+
     }
 }

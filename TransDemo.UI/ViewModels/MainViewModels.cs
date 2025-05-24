@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using TransDemo.Logic.Services;
 using TransDemo.UI.Views;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TransDemo.UI.ViewModels
 {
@@ -30,10 +31,7 @@ namespace TransDemo.UI.ViewModels
         public ICommand ExitCommand { get; }
         public ICommand OpenAboutCommand { get; }
 
-        public MainViewModel(DistributedTransactionService svc)
-        {
-            _svc = svc;
-        }
+        public MainViewModel(DistributedTransactionService svc) => _svc = svc;
         public MainViewModel(IServiceProvider provider, DistributedTransactionService svc)
         {
             _provider = provider;
@@ -42,6 +40,7 @@ namespace TransDemo.UI.ViewModels
             OpenSettingsCommand = new RelayCommand(_ => {
                 // Wyciągamy SettingsView z kontenera
                 var win = _provider.GetRequiredService<SettingsView>();
+                win.Owner = System.Windows.Application.Current.MainWindow;
                 win.ShowDialog();
             });
 
@@ -50,9 +49,9 @@ namespace TransDemo.UI.ViewModels
 
             Tabs = new ObservableCollection<TabItemViewModel>
             {
-                new DashboardTabViewModel(_svc),
-                new TransfersTabViewModel(_svc),
-                new HistoryTabViewModel(_svc)
+                _provider.GetRequiredService<DashboardTabViewModel>(),
+                _provider.GetRequiredService<TransfersTabViewModel>(),
+                _provider.GetRequiredService<HistoryTabViewModel>()
             };
             SelectedTab = Tabs[0];
         }

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransDemo.UI", "TransDemo.UI\TransDemo.UI.csproj", "{01D96AAF-AAB0-4A6C-A054-50E77F85E8C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransDemo.Logic", "TransDemo.Logic\TransDemo.Logic.csproj", "{CDDC1A65-036D-4EA5-BC4C-09450A4E5A4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransDemo.Data", "TransDemo.Data\TransDemo.Data.csproj", "{ADFB24B8-A961-43BA-A211-A14B17E4003F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransDemo.Models", "TransDemo.Models\TransDemo.Models.csproj", "{58E7E919-EF1B-444D-A739-9464E54750DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{ADFB24B8-A961-43BA-A211-A14B17E4003F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADFB24B8-A961-43BA-A211-A14B17E4003F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADFB24B8-A961-43BA-A211-A14B17E4003F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58E7E919-EF1B-444D-A739-9464E54750DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E7E919-EF1B-444D-A739-9464E54750DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E7E919-EF1B-444D-A739-9464E54750DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E7E919-EF1B-444D-A739-9464E54750DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

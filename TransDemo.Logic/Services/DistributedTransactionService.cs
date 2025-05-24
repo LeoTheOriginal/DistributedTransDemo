@@ -8,13 +8,9 @@ using TransDemo.Data.Repositories;
 
 namespace TransDemo.Logic.Services
 {
-    public class DistributedTransactionService
+    public class DistributedTransactionService(IHistoryRepository repo)
     {
-        private readonly IHistoryRepository _repo;
-        public DistributedTransactionService(IHistoryRepository repo)
-        {
-            _repo = repo;
-        }
+        private readonly IHistoryRepository _repo = repo;
 
         public void RunDemoTransaction(bool simulateError = false)
         {
