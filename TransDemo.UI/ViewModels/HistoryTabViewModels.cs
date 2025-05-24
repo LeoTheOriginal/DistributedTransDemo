@@ -8,7 +8,7 @@ namespace TransDemo.UI.ViewModels
         public override string Header => "History";
         public override object Content { get; }
 
-        public HistoryTabViewModel(DistributedTransactionService svc)
+        public HistoryTabViewModel(TransferService svc)
         {
             Content = new HistoryView();
         }

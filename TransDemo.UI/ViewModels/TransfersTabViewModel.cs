@@ -1,5 +1,5 @@
-﻿using TransDemo.Logic.Services;
-using TransDemo.UI.Views;
+﻿using TransDemo.UI.Views;
+using TransDemo.UI.ViewModels;
 
 namespace TransDemo.UI.ViewModels
 {
@@ -8,10 +8,12 @@ namespace TransDemo.UI.ViewModels
         public override string Header => "Transfers";
         public override object Content { get; }
 
-        public TransfersTabViewModel(DistributedTransactionService svc)
+        public TransfersTabViewModel(
+            TransfersView view,
+            TransfersViewModel vm)
         {
-            Content = new TransfersView();
-            // zakładamy, że TransfersView ma swój ViewModel
+            view.DataContext = vm;
+            Content = view;
         }
     }
 }

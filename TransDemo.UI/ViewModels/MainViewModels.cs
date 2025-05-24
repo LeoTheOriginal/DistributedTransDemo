@@ -13,7 +13,7 @@ namespace TransDemo.UI.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         private readonly IServiceProvider _provider;
-        private readonly DistributedTransactionService _svc;
+        private readonly TransferService _transferSvc;
 
         public ObservableCollection<TabItemViewModel> Tabs { get; }
         private TabItemViewModel _selectedTab;
@@ -31,11 +31,11 @@ namespace TransDemo.UI.ViewModels
         public ICommand ExitCommand { get; }
         public ICommand OpenAboutCommand { get; }
 
-        public MainViewModel(DistributedTransactionService svc) => _svc = svc;
-        public MainViewModel(IServiceProvider provider, DistributedTransactionService svc)
+        public MainViewModel(TransferService svc) => _transferSvc = svc;
+        public MainViewModel(IServiceProvider provider, TransferService svc)
         {
             _provider = provider;
-            _svc = svc;
+            _transferSvc = svc;
 
             OpenSettingsCommand = new RelayCommand(_ => {
                 // Wyciągamy SettingsView z kontenera

@@ -14,14 +14,14 @@ namespace TransDemo.UI.ViewModels
     {
         private readonly string _settingsPath = "appsettings.json";
 
-        private ObservableCollection<DbConnectionSetting> _connections = new();
+        private ObservableCollection<DbConnectionSetting> _connections = [];
         public ObservableCollection<DbConnectionSetting> Connections
         {
             get => _connections;
             set => SetProperty(ref _connections, value);
         }
 
-        public ObservableCollection<string> AvailableDatabases { get; } = new ObservableCollection<string>();
+        public ObservableCollection<string> AvailableDatabases { get; } = [];
 
         public ICommand TestConnectionCommand { get; }
         public ICommand ApplyCommand { get; }
@@ -67,7 +67,7 @@ namespace TransDemo.UI.ViewModels
                 };
             }).ToList();
 
-            Connections = new ObservableCollection<DbConnectionSetting>(list);
+            Connections = [.. list];
             // 4) ustaw domyślone SelectedConnection i od razu załaduj jego bazy
             SelectedConnection = Connections.FirstOrDefault();
 
