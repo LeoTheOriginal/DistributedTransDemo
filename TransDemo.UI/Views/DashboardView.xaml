@@ -1,83 +1,63 @@
 ﻿<UserControl x:Class="TransDemo.UI.Views.DashboardView"
-            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
-            xmlns:md="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
-            mc:Ignorable="d"
-            d:DesignHeight="350" d:DesignWidth="600">
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+             xmlns:md="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="600"
+             xmlns:conv="clr-namespace:TransDemo.UI.Converters"
+             >
+
+    <UserControl.Resources>
+        <conv:ChartTypeToVisibilityConverter x:Key="ChartTypeToVisibilityConverter" />
+    </UserControl.Resources>
 
     <Grid Margin="16">
-        
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button
-        Command="{Binding RefreshCommand}"
-        Content="Odśwież"
-        Style="{StaticResource MaterialDesignOutlinedButton}"
-        Margin="4"/>
-            <Button
-        Command="{Binding RunDemoCommand}"
-        Content="Demo Transaction"
-        Style="{StaticResource MaterialDesignRaisedButton}"
-        Margin="4"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Górny panel: wybór opcji -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Center">
+            <TextBlock Text="Typ wykresu:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <ComboBox ItemsSource="{Binding ChartTypes}"
+                      SelectedItem="{Binding SelectedChartType}"
+                      Width="120" Margin="0,0,16,0"/>
+
+            <TextBlock Text="Ostatnie dni:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <ComboBox ItemsSource="{Binding DayOptions}"
+                      SelectedItem="{Binding SelectedDays}"
+                      Width="80"/>
         </StackPanel>
 
-        <Grid Margin="0,48,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <!-- Przyciski akcji -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1" Margin="0,0,0,10">
+            <Button
+                Command="{Binding RefreshCommand}"
+                Content="Odśwież"
+                Style="{StaticResource MaterialDesignOutlinedButton}"
+                Margin="4"/>
+        </StackPanel>
 
+        <!-- Wykres -->
+        <md:Card Grid.Row="2" Padding="16">
+            <Grid>
+                <lvc:CartesianChart x:Name="CartesianChart"
+                        Series="{Binding ChartSeries}"
+                        XAxes="{Binding XAxes}"
+                        YAxes="{Binding YAxes}"
+                        Visibility="{Binding SelectedChartType, Converter={StaticResource ChartTypeToVisibilityConverter}, ConverterParameter=Cartesian}" />
+                
 
-            <md:Card Grid.Column="0" Margin="0,0,8,0">
-                <StackPanel>
-                    <TextBlock
-            Text="Historia oddziału 1"
-            Style="{StaticResource MaterialDesignBodySmallTextBlock}"
-            Margin="8"/>
-                    <DataGrid
-            ItemsSource="{Binding Branch1History}"
-            AutoGenerateColumns="False"
-            IsReadOnly="True"
-            RowHeaderWidth="0"
-            Margin="8">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn
-                Header="Data"
-                Binding="{Binding CreatedAt, StringFormat=G}" />
-                            <DataGridTextColumn
-                Header="Opis"
-                Binding="{Binding Info}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
-            </md:Card>
-
-
-            <md:Card Grid.Column="1" Margin="8,0,0,0">
-                <StackPanel>
-                    <TextBlock
-            Text="Historia oddziału 2"
-            Style="{StaticResource MaterialDesignBodySmallTextBlock}"
-            Margin="8"/>
-                    <DataGrid
-            ItemsSource="{Binding Branch2History}"
-            AutoGenerateColumns="False"
-            IsReadOnly="True"
-            RowHeaderWidth="0"
-            Margin="8">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn
-                Header="Data"
-                Binding="{Binding CreatedAt, StringFormat=G}" />
-                            <DataGridTextColumn
-                Header="Opis"
-                Binding="{Binding Info}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
-            </md:Card>
-        </Grid>
+                <!-- Pie (kołowy udział oddziałów) -->
+                <lvc:PieChart x:Name="PieChart"
+                      Series="{Binding ChartSeries}"
+                      Visibility="{Binding SelectedChartType, Converter={StaticResource ChartTypeToVisibilityConverter}, ConverterParameter=Pie}" />
+            </Grid>
+        </md:Card>
     </Grid>
 </UserControl>

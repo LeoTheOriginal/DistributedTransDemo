@@ -8,9 +8,13 @@ namespace TransDemo.UI.ViewModels
         public override string Header => "History";
         public override object Content { get; }
 
-        public HistoryTabViewModel(TransferService svc)
+        public HistoryTabViewModel(HistoryViewModel vm)
         {
-            Content = new HistoryView();
+            var view = new HistoryView
+            {
+                DataContext = vm
+            };
+            Content = view;
         }
     }
 }

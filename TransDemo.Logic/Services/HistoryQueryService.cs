@@ -12,6 +12,7 @@ namespace TransDemo.Logic.Services
     /// </summary>
     public class HistoryQueryService
     {
+        private readonly string _connCentral;
         private readonly string _connB1;
         private readonly string _connB2;
 
@@ -21,6 +22,7 @@ namespace TransDemo.Logic.Services
         /// <param name="config">Obiekt konfiguracji z pliku appsettings.json</param>
         public HistoryQueryService(IConfiguration config)
         {
+            _connCentral = config.GetConnectionString("CentralDB")!;
             _connB1 = config.GetConnectionString("Branch1DB")!;
             _connB2 = config.GetConnectionString("Branch2DB")!;
         }
@@ -32,11 +34,20 @@ namespace TransDemo.Logic.Services
         /// <returns>Lista wpisów historii.</returns>
         public async Task<IEnumerable<HistoryEntry>> GetBranchHistoryAsync(int branchNumber)
         {
-            var connStr = branchNumber == 1 ? _connB1 : _connB2;
+            string connStr = branchNumber switch
+            {
+                0 => _connCentral,
+                1 => _connB1,
+                2 => _connB2,
+                _ => throw new ArgumentOutOfRangeException(nameof(branchNumber), "Nieznany numer oddziału")
+            };
+
             await using var conn = new SqlConnection(connStr);
             await conn.OpenAsync();
             const string sql = @"SELECT HistoryId, Info, CreatedAt FROM History ORDER BY CreatedAt DESC";
             return await conn.QueryAsync<HistoryEntry>(sql);
         }
+
+
     }
 }

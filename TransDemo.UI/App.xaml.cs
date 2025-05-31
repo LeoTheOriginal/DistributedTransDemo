@@ -56,14 +56,9 @@ namespace TransDemo.UI
             });
 
             services.AddSingleton<IHistoryRepository>(sp =>
-                new SqlHistoryRepository(connB1, connB2));
+                new SqlHistoryRepository(connCentral, connB1, connB2));
 
             services.AddTransient<HistoryQueryService>();
-            // *** USUWAMY to ***
-            // services.AddTransient<DistributedTransactionService>();
-
-            // *** JEŚLI HISTORYQueryService nie jest już potrzebny, też go wyrzuć ***
-            // services.AddTransient<HistoryQueryService>();
 
             // konto i klient
             services.AddSingleton<IAccountRepository>(_ => new SqlAccountRepository(connCentral));
@@ -73,8 +68,13 @@ namespace TransDemo.UI
             services.AddTransient<SearchCustomerView>();
             services.AddTransient<SearchCustomerViewModel>();
 
+            services.AddSingleton<IDistributedTransferRepository>(
+                _ => new SqlDistributedTransferRepository(connCentral));
             // transfer service
             services.AddTransient<TransferService>();
+            services.AddTransient<StatisticsQueryService>();
+            services.AddTransient<TransactionStatsService>();
+            services.AddTransient<DashboardStatsService>();
 
 
             // 2.2) ViewModels + Views

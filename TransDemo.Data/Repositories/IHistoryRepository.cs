@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TransDemo.Models;
 
 namespace TransDemo.Data.Repositories
 {
@@ -10,5 +11,8 @@ namespace TransDemo.Data.Repositories
     {
         void AddEntryToA(string info);
         void AddEntryToB(string info);
+        IEnumerable<HistoryEntry> GetHistoryFromBranch(int branchId);
+        IEnumerable<HistoryEntry> GetCentralHistory();
+
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransDemo.Data", "TransDemo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransDemo.Models", "TransDemo.Models\TransDemo.Models.csproj", "{58E7E919-EF1B-444D-A739-9464E54750DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTester", "ApiTester\ApiTester.csproj", "{7F20BC8E-71A0-4487-85F1-8BAB1890A051}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{58E7E919-EF1B-444D-A739-9464E54750DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58E7E919-EF1B-444D-A739-9464E54750DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58E7E919-EF1B-444D-A739-9464E54750DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F20BC8E-71A0-4487-85F1-8BAB1890A051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F20BC8E-71A0-4487-85F1-8BAB1890A051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F20BC8E-71A0-4487-85F1-8BAB1890A051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F20BC8E-71A0-4487-85F1-8BAB1890A051}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
