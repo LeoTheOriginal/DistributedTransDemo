@@ -80,11 +80,6 @@
                         IsEnabled="{Binding CanExecuteTransfer}"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         Margin="0,0,8,0"/>
-
-                <Button Content="Symuluj błąd"
-                        Command="{Binding ExecuteTransferWithErrorCommand}"
-                        IsEnabled="{Binding CanExecuteTransfer}"
-                        Style="{StaticResource MaterialDesignOutlinedButton}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

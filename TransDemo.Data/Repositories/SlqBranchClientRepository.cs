@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using Dapper;
 using Microsoft.Data.SqlClient;
-using TransDemo.Data.Models;
+
 
 namespace TransDemo.Data.Repositories
 {

@@ -1,0 +1,7 @@
+CREATE TABLE dbo.History (
+    HistoryId INT IDENTITY(1,1) PRIMARY KEY,
+    Info      NVARCHAR(200) NOT NULL,
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME()
+);
+GO
+CREATE INDEX IX_History_CreatedAt ON dbo.History(CreatedAt);

@@ -13,6 +13,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransDemo.Models", "TransDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTester", "ApiTester\ApiTester.csproj", "{7F20BC8E-71A0-4487-85F1-8BAB1890A051}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TransDemo.BankCentral", "TransDemo.Database\TransDemo.BankCentral.sqlproj", "{B0B174B7-E130-49B1-9972-5FD11D12A7E1}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TransDemo.Branch1DB", "TransDemo.Branch1DB\TransDemo.Branch1DB.sqlproj", "{BBD683D4-DD28-49CE-8572-E080A20E9875}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B0B174B7-E130-49B1-9972-5FD11D12A7E1} = {B0B174B7-E130-49B1-9972-5FD11D12A7E1}
+	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TransDemo.Branch2DB", "TransDemo.Branch2DB\TransDemo.Branch2DB.sqlproj", "{58644FD8-C41F-48E5-B3F9-AF7309EF3D2F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B0B174B7-E130-49B1-9972-5FD11D12A7E1} = {B0B174B7-E130-49B1-9972-5FD11D12A7E1}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +51,24 @@ Global
 		{7F20BC8E-71A0-4487-85F1-8BAB1890A051}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F20BC8E-71A0-4487-85F1-8BAB1890A051}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F20BC8E-71A0-4487-85F1-8BAB1890A051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B174B7-E130-49B1-9972-5FD11D12A7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B174B7-E130-49B1-9972-5FD11D12A7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B174B7-E130-49B1-9972-5FD11D12A7E1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B0B174B7-E130-49B1-9972-5FD11D12A7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B174B7-E130-49B1-9972-5FD11D12A7E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B174B7-E130-49B1-9972-5FD11D12A7E1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BBD683D4-DD28-49CE-8572-E080A20E9875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD683D4-DD28-49CE-8572-E080A20E9875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD683D4-DD28-49CE-8572-E080A20E9875}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BBD683D4-DD28-49CE-8572-E080A20E9875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD683D4-DD28-49CE-8572-E080A20E9875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD683D4-DD28-49CE-8572-E080A20E9875}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{58644FD8-C41F-48E5-B3F9-AF7309EF3D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58644FD8-C41F-48E5-B3F9-AF7309EF3D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58644FD8-C41F-48E5-B3F9-AF7309EF3D2F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{58644FD8-C41F-48E5-B3F9-AF7309EF3D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58644FD8-C41F-48E5-B3F9-AF7309EF3D2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58644FD8-C41F-48E5-B3F9-AF7309EF3D2F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
