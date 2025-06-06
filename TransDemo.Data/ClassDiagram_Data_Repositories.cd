@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="TransDemo.Data.Repositories.SqlBranchClientRepository" BaseTypeListCollapsed="true">
+    <Position X="7" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAGBAAAAAAAAEAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\SlqBranchClientRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlAccountRepository" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAGBAAAAAAAAEAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\SqlAccountRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlCentralBankRepository" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Repositories\SqlCentralBankRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlCustomerRepository" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\SqlCustomerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlDistributedTransferRepository" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Repositories\SqlDistributedTransferRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlHistoryRepository" BaseTypeListCollapsed="true">
+    <Position X="11" Y="4.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAABAAQAAAAAEAAgAAQ=</HashCode>
+      <FileName>Repositories\SqlHistoryRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="TransDemo.Data.Repositories.IAccountRepository" Collapsed="true">
+    <Position X="6.5" Y="8.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAEAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IAccountRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.IBranchClientRepository" Collapsed="true">
+    <Position X="8.5" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAEAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IBranchClientRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.ICentralBankRepository" Collapsed="true">
+    <Position X="11.25" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ICentralBankRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.ICustomerRepository" Collapsed="true">
+    <Position X="6.5" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ICustomerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.IDistributedTransferRepository" Collapsed="true">
+    <Position X="8.5" Y="9" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IDistributedTransferRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.IHistoryRepository" Collapsed="true">
+    <Position X="11.25" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAABAAQAAAAAAAAgAAA=</HashCode>
+      <FileName>Repositories\IHistoryRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

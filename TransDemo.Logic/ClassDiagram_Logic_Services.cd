@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="TransDemo.Logic.Services.DashboardStatsService">
+    <Position X="3.5" Y="6.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAEAAAAAAAAAAAQIAAQ=</HashCode>
+      <FileName>Services\DashboardStatsService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.Logic.Services.HistoryQueryService">
+    <Position X="10.25" Y="6.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAEAAQ=</HashCode>
+      <FileName>Services\HistoryQueryService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.Logic.Services.TransactionStatsService">
+    <Position X="3.5" Y="9.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\TransactionStatService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.Logic.Services.TransferService">
+    <Position X="15" Y="6.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Services\TransferService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StatisticsQueryService">
+    <Position X="12.25" Y="9.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Services\StatisticsQueryService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="8.75" Y="3.25" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

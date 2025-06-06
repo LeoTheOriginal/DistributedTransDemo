@@ -12,32 +12,70 @@ using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
 
 
+/// <summary>
+/// ViewModel for the dashboard, providing chart data and options for the dashboard view.
+/// Handles loading and formatting of statistics for various chart types.
+/// </summary>
 public class DashboardViewModel : INotifyPropertyChanged
 {
     private readonly DashboardStatsService _statsService;
 
+    /// <summary>
+    /// Enum representing the available chart types for the dashboard.
+    /// </summary>
     public enum DashboardChartType
     {
+        /// <summary>
+        /// Daily transaction count chart.
+        /// </summary>
         DailyTxnCount,
+        /// <summary>
+        /// Daily transaction amount chart.
+        /// </summary>
         DailyTxnAmount,
+        /// <summary>
+        /// Daily cumulative balance chart.
+        /// </summary>
         DailyCumulativeBalance,
+        /// <summary>
+        /// Pie chart of branch transaction shares.
+        /// </summary>
         BranchPie,
+        /// <summary>
+        /// Column chart of top customers by transaction amount.
+        /// </summary>
         TopCustomers
     }
 
-
+    /// <summary>
+    /// Gets the collection of chart series to be displayed.
+    /// </summary>
     public ObservableCollection<ISeries> ChartSeries { get; } = new();
+
+    /// <summary>
+    /// Gets the X axes for the chart.
+    /// </summary>
     public Axis[] XAxes { get; } =
     {
         new Axis { Labels = [] }
     };
+
+    /// <summary>
+    /// Gets the Y axes for the chart.
+    /// </summary>
     public ObservableCollection<Axis> YAxes { get; } = new()
     {
         new Axis { Labeler = value => value.ToString("N0") }
     };
 
-
+    /// <summary>
+    /// Gets the available day options for the dashboard statistics.
+    /// </summary>
     public ObservableCollection<int> DayOptions { get; } = new() { 7, 14, 30, 60 };
+
+    /// <summary>
+    /// Gets the available chart types for the dashboard.
+    /// </summary>
     public ObservableCollection<DashboardChartType> ChartTypes { get; } = new()
     {
         DashboardChartType.DailyTxnCount,
@@ -47,8 +85,10 @@ public class DashboardViewModel : INotifyPropertyChanged
         DashboardChartType.TopCustomers
     };
 
-
     private int _selectedDays = 7;
+    /// <summary>
+    /// Gets or sets the number of days to display in the chart.
+    /// </summary>
     public int SelectedDays
     {
         get => _selectedDays;
@@ -56,15 +96,24 @@ public class DashboardViewModel : INotifyPropertyChanged
     }
 
     private DashboardChartType _selectedChartType = DashboardChartType.DailyTxnCount;
+    /// <summary>
+    /// Gets or sets the selected chart type.
+    /// </summary>
     public DashboardChartType SelectedChartType
     {
         get => _selectedChartType;
         set { if (SetProperty(ref _selectedChartType, value)) _ = LoadChartAsync(); }
     }
 
-
+    /// <summary>
+    /// Gets the command to refresh the chart data.
+    /// </summary>
     public ICommand RefreshCommand { get; }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DashboardViewModel"/> class.
+    /// </summary>
+    /// <param name="statsService">The service used to retrieve dashboard statistics.</param>
     public DashboardViewModel(DashboardStatsService statsService)
     {
         _statsService = statsService;
@@ -72,34 +121,37 @@ public class DashboardViewModel : INotifyPropertyChanged
         _ = LoadChartAsync();
     }
 
+    /// <summary>
+    /// Loads and prepares chart data asynchronously based on the selected chart type and days.
+    /// </summary>
     private async Task LoadChartAsync()
     {
         var rawStats = (await _statsService.GetStatsAsync(SelectedDays)).ToList();
 
-        // Utwórz listę wszystkich dat od dzisiaj do -N
+        // Create a list of all dates from today to -N days
         var allDates = Enumerable.Range(0, SelectedDays)
             .Select(offset => DateTime.Today.AddDays(-offset))
             .OrderBy(d => d)
             .ToList();
 
-        // Słownik statystyk wg daty
+        // Dictionary of statistics by date
         var statsDict = rawStats.ToDictionary(s => s.TxnDate.Date);
 
-        // Wyrównaj dane: wstaw zera jeśli brak transakcji danego dnia
+        // Fill missing days with zero values
         var filledStats = allDates.Select(date =>
             statsDict.TryGetValue(date, out var stat)
                 ? new DailyTransactionStat { TxnDate = date, TxnCount = stat.TxnCount, TotalAmount = stat.TotalAmount }
                 : new DailyTransactionStat { TxnDate = date, TxnCount = 0, TotalAmount = 0 }
         ).ToList();
 
-        // Zaktualizuj etykiety osi X
+        // Update X axis labels
         XAxes[0].Labels = filledStats.Select(s => s.TxnDate.ToString("MM-dd")).ToArray();
         OnPropertyChanged(nameof(XAxes));
 
-        // Wyczyść poprzednią serię
+        // Clear previous series
         ChartSeries.Clear();
 
-        // Zbuduj wykresy zależnie od wybranego trybu
+        // Build chart series based on selected chart type
         switch (SelectedChartType)
         {
             case DashboardChartType.DailyTxnCount:
@@ -132,7 +184,6 @@ public class DashboardViewModel : INotifyPropertyChanged
                     break;
                 }
 
-
             case DashboardChartType.BranchPie:
                 {
                     var shares = (await _statsService.GetBranchShareAsync()).ToList();
@@ -147,7 +198,6 @@ public class DashboardViewModel : INotifyPropertyChanged
                             DataLabelsPosition = LiveChartsCore.Measure.PolarLabelsPosition.Middle,
                             DataLabelsFormatter = chartPoint => $"{chartPoint.Model:F2} %",
                             DataLabelsPaint = new SolidColorPaint(SKColors.Black),
-
                         });
                     }
 
@@ -157,7 +207,6 @@ public class DashboardViewModel : INotifyPropertyChanged
                     YAxes.Add(new Axis { Labeler = value => value.ToString("N0") });
                     break;
                 }
-
 
             case DashboardChartType.TopCustomers:
                 {
@@ -171,13 +220,22 @@ public class DashboardViewModel : INotifyPropertyChanged
                     XAxes[0].Labels = top.Select(c => c.FullName).ToArray();
                     break;
                 }
-
         }
     }
 
-
-    // PropertyChanged boilerplate
+    /// <summary>
+    /// Occurs when a property value changes.
+    /// </summary>
     public event PropertyChangedEventHandler? PropertyChanged;
+
+    /// <summary>
+    /// Sets the property and raises the PropertyChanged event if the value changes.
+    /// </summary>
+    /// <typeparam name="T">The type of the property.</typeparam>
+    /// <param name="field">The backing field reference.</param>
+    /// <param name="value">The new value.</param>
+    /// <param name="name">The property name.</param>
+    /// <returns>True if the value was changed; otherwise, false.</returns>
     protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? name = null)
     {
         if (Equals(field, value)) return false;
@@ -185,5 +243,10 @@ public class DashboardViewModel : INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         return true;
     }
+
+    /// <summary>
+    /// Raises the PropertyChanged event for the specified property.
+    /// </summary>
+    /// <param name="name">The property name.</param>
     protected void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }

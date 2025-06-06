@@ -13,8 +13,15 @@ using TransDemo.Models;
 
 namespace ApiTester
 {
+    /// <summary>
+    /// Główna klasa zawierająca testy jednostkowe i integracyjne dla warstw repozytoriów i usług logicznych.
+    /// </summary>
     class Tests
     {
+        /// <summary>
+        /// Główny punkt wejścia aplikacji testującej.
+        /// Ładuje konfigurację z pliku appsettings.json i uruchamia kolejne testy.
+        /// </summary>
         static async Task Main(string[] args)
         {
             // 1. Ładujemy appsettings.json (musisz mieć w katalogu projektu ApiTester plik appsettings.json
@@ -167,12 +174,18 @@ namespace ApiTester
                 ? "<<< WSZYSTKIE TESTY LOGIC ZALICZONE POMYŚLNIE >>>"
                 : "<<< COŚ NIE WYSZŁO W TESTACH LOGIC >>>");
             Console.ReadLine();
-       
         }
 
         // ============================
         // 1. Testy dla IHistoryRepository
         // ============================
+
+        /// <summary>
+        /// Wykonuje testy na repozytorium <see cref="IHistoryRepository"/>.
+        /// </summary>
+        /// <param name="connCentral">Connection string do bazy centralnej.</param>
+        /// <param name="connA">Connection string do bazy oddziału A.</param>
+        /// <param name="connB">Connection string do bazy oddziału B.</param>
         static void TestHistoryRepository(string connCentral, string connA, string connB)
         {
             var historyRepo = new SqlHistoryRepository(connCentral, connA, connB);
@@ -244,6 +257,14 @@ namespace ApiTester
         // ============================
         // 2. Testy dla IDistributedTransferRepository
         // ============================
+
+        /// <summary>
+        /// Wykonuje testy dla repozytorium <see cref="IDistributedTransferRepository"/>,
+        /// weryfikując scenariusze sukcesu oraz błędu (rollback) dla transferów rozproszonych.
+        /// </summary>
+        /// <param name="connCentral">Connection string do bazy centralnej.</param>
+        /// <param name="connA">Connection string do bazy oddziału A.</param>
+        /// <param name="connB">Connection string do bazy oddziału B.</param>
         static void TestDistributedTransfer(string connCentral, string connA, string connB)
         {
             var distroRepo = new SqlDistributedTransferRepository(connCentral);
@@ -316,6 +337,11 @@ namespace ApiTester
         // ============================
         // 3. Testy dla IAccountRepository
         // ============================
+
+        /// <summary>
+        /// Wykonuje testy na repozytorium <see cref="IAccountRepository"/> dla operacji GetAll, Debit, Credit.
+        /// </summary>
+        /// <param name="connCentral">Connection string do bazy centralnej.</param>
         static void TestAccountRepository(string connCentral)
         {
             var accountRepo = new SqlAccountRepository(connCentral);
@@ -393,6 +419,11 @@ namespace ApiTester
         // ============================
         // 4. Testy dla IBranchClientRepository
         // ============================
+
+        /// <summary>
+        /// Wykonuje testy na repozytorium <see cref="IBranchClientRepository"/> dla operacji GetBalance, Debit, Credit i obsługi braku środków.
+        /// </summary>
+        /// <param name="connBranch">Connection string do bazy oddziału.</param>
         static void TestBranchClientRepository(string connBranch)
         {
             var branchRepo = new SqlBranchClientRepository(connBranch);
@@ -494,6 +525,11 @@ namespace ApiTester
         // ============================
         // 5. Testy dla ICentralBankRepository
         // ============================
+
+        /// <summary>
+        /// Wykonuje testy na repozytorium <see cref="ICentralBankRepository"/> dla operacji TransferCentral.
+        /// </summary>
+        /// <param name="connCentral">Connection string do bazy centralnej.</param>
         static void TestCentralBankRepository(string connCentral)
         {
             var centralRepo = new SqlCentralBankRepository(connCentral);
@@ -581,10 +617,14 @@ namespace ApiTester
             }
         }
 
-
         // ============================
         // 6. Testy dla ICustomerRepository
         // ============================
+
+        /// <summary>
+        /// Wykonuje testy na repozytorium <see cref="ICustomerRepository"/> dla operacji GetAll z filtrem i bez.
+        /// </summary>
+        /// <param name="connCentral">Connection string do bazy centralnej.</param>
         static void TestCustomerRepository(string connCentral)
         {
             var customerRepo = new SqlCustomerRepository(connCentral);
@@ -650,6 +690,11 @@ namespace ApiTester
         // ============================
         // Testy dla DashboardStatsService
         // ============================
+
+        /// <summary>
+        /// Testuje metody <see cref="DashboardStatsService"/>: pobieranie statystyk dziennych, sald, udziału oddziałów oraz top klientów.
+        /// </summary>
+        /// <param name="configuration">Instancja <see cref="IConfiguration"/> z pliku konfiguracyjnego.</param>
         static async Task TestDashboardStatsService(IConfiguration configuration)
         {
             var service = new DashboardStatsService(configuration);
@@ -714,6 +759,12 @@ namespace ApiTester
         // ============================
         // Testy dla HistoryQueryService
         // ============================
+
+        /// <summary>
+        /// Testuje metody <see cref="HistoryQueryService"/>, weryfikując pobieranie historii z centrali i oddziałów,
+        /// a także obsługę nieprawidłowego numeru oddziału.
+        /// </summary>
+        /// <param name="configuration">Instancja <see cref="IConfiguration"/> z pliku konfiguracyjnego.</param>
         static async Task TestHistoryQueryService(IConfiguration configuration)
         {
             var service = new HistoryQueryService(configuration);
@@ -786,6 +837,11 @@ namespace ApiTester
         // ============================
         // Testy dla StatisticsQueryService
         // ============================
+
+        /// <summary>
+        /// Testuje metodę <see cref="StatisticsQueryService.GetDailyStatsAsync"/>, pobierając statystyki z widoku vDailyTransactionStats.
+        /// </summary>
+        /// <param name="configuration">Instancja <see cref="IConfiguration"/> z pliku konfiguracyjnego.</param>
         static async Task TestStatisticsQueryService(IConfiguration configuration)
         {
             var service = new StatisticsQueryService(configuration);
@@ -808,6 +864,11 @@ namespace ApiTester
         // ============================
         // Testy dla TransactionStatsService
         // ============================
+
+        /// <summary>
+        /// Testuje metodę <see cref="TransactionStatsService.GetDailyStatsAsync"/>, pobierając statystyki dzienne.
+        /// </summary>
+        /// <param name="configuration">Instancja <see cref="IConfiguration"/> z pliku konfiguracyjnego.</param>
         static async Task TestTransactionStatsService(IConfiguration configuration)
         {
             var service = new TransactionStatsService(configuration);
@@ -830,6 +891,11 @@ namespace ApiTester
         // ============================
         // Testy dla TransferService
         // ============================
+
+        /// <summary>
+        /// Wykonuje testy na serwisie <see cref="TransferService"/>, weryfikując wywołanie metody TransferDistributed
+        /// oraz obsługę flagi simulateError.
+        /// </summary>
         static void TestTransferService()
         {
             // Fałszywe repozytorium do śledzenia wywołań
@@ -890,6 +956,13 @@ namespace ApiTester
         // ============================
         // POMOCNICZE METODY DO TESTÓW (na poziomie klasy)
         // ============================
+
+        /// <summary>
+        /// Wykonuje zapytanie SQL typu non-query (INSERT/UPDATE/DELETE).
+        /// </summary>
+        /// <param name="connString">Connection string do bazy danych.</param>
+        /// <param name="sql">Polecenie SQL do wykonania.</param>
+        /// <param name="param">Parametry do zapytania Dapper (opcjonalne).</param>
         private static void ExecuteNonQuery(string connString, string sql, object? param = null)
         {
             using var conn = new SqlConnection(connString);
@@ -897,6 +970,12 @@ namespace ApiTester
             conn.Execute(sql, param);
         }
 
+        /// <summary>
+        /// Zlicza liczbę rekordów w tabeli History, których kolumna Info zawiera podany ciąg znaków.
+        /// </summary>
+        /// <param name="connString">Connection string do bazy danych.</param>
+        /// <param name="infoContains">Ciąg znaków, który musi wystąpić w kolumnie Info.</param>
+        /// <returns>Liczba rekordów spełniających warunek.</returns>
         private static int CountHistoryRecords(string connString, string infoContains)
         {
             using var conn = new SqlConnection(connString);
@@ -906,6 +985,13 @@ namespace ApiTester
                 new { p = $"%{infoContains}%" });
         }
 
+        /// <summary>
+        /// Zlicza liczbę transakcji w BranchTransactions dla danego klienta i typu transakcji.
+        /// </summary>
+        /// <param name="connString">Connection string do bazy oddziału.</param>
+        /// <param name="centralClientId">ID klienta w bazie centralnej, po którym łączymy tabele.</param>
+        /// <param name="txnType">Typ transakcji ("DEBIT" lub "CREDIT").</param>
+        /// <returns>Liczba rekordów odpowiadających filtrowi.</returns>
         private static int CountBranchTransactions(string connString, int centralClientId, string txnType)
         {
             using var conn = new SqlConnection(connString);
@@ -918,6 +1004,13 @@ namespace ApiTester
                 new { cid = centralClientId, type = txnType });
         }
 
+        /// <summary>
+        /// Zlicza liczbę transakcji w tabeli Transactions w bazie centralnej dla danego konta i typu transakcji.
+        /// </summary>
+        /// <param name="connString">Connection string do bazy centralnej.</param>
+        /// <param name="accountId">ID konta.</param>
+        /// <param name="txnType">Typ transakcji ("DEBIT" lub "CREDIT").</param>
+        /// <returns>Liczba rekordów odpowiadających rodzajowi transakcji.</returns>
         private static int CountCentralTransactions(string connString, int accountId, string txnType)
         {
             using var conn = new SqlConnection(connString);
@@ -927,6 +1020,12 @@ namespace ApiTester
                 new { id = accountId, type = txnType });
         }
 
+        /// <summary>
+        /// Pobiera bieżące saldo konta w bazie centralnej.
+        /// </summary>
+        /// <param name="connString">Connection string do bazy centralnej.</param>
+        /// <param name="accountId">ID konta.</param>
+        /// <returns>Saldo konta jako decimal.</returns>
         private static decimal GetCentralAccountBalance(string connString, int accountId)
         {
             using var conn = new SqlConnection(connString);
@@ -936,6 +1035,12 @@ namespace ApiTester
                 new { id = accountId });
         }
 
+        /// <summary>
+        /// Pobiera bieżące saldo klienta (BranchClients) w bazie oddziałowej.
+        /// </summary>
+        /// <param name="connString">Connection string do bazy oddziału.</param>
+        /// <param name="centralClientId">ID klienta w bazie centralnej, który jest kluczem powiązania.</param>
+        /// <returns>Saldo klienta jako decimal.</returns>
         private static decimal GetBranchClientBalance(string connString, int centralClientId)
         {
             using var conn = new SqlConnection(connString);
@@ -945,6 +1050,17 @@ namespace ApiTester
                 new { cid = centralClientId });
         }
 
+        /// <summary>
+        /// Przygotowuje scenariusz do testów transferu rozproszonego.
+        /// Czyści odpowiednie tabele w bazach i wstawia konta początkowe z zadanymi saldami.
+        /// </summary>
+        /// <param name="connCentral">Connection string do bazy centralnej.</param>
+        /// <param name="connA">Connection string do bazy oddziału A.</param>
+        /// <param name="connB">Connection string do bazy oddziału B.</param>
+        /// <param name="fromCentralBalance">Początkowe saldo konta źródłowego w centrali.</param>
+        /// <param name="toCentralBalance">Początkowe saldo konta docelowego w centrali.</param>
+        /// <param name="branch1InitialBalance">Początkowe saldo klienta w oddziale 1.</param>
+        /// <param name="branch2InitialBalance">Początkowe saldo klienta w oddziale 2.</param>
         private static void PrepareDistributedScenario(
             string connCentral, string connA, string connB,
             decimal fromCentralBalance, decimal toCentralBalance,
@@ -989,16 +1105,34 @@ namespace ApiTester
             ", new { b2bal = branch2InitialBalance });
         }
 
+        /// <summary>
+        /// Sprawdza warunek i w razie niepowodzenia rzuca wyjątek z podanym komunikatem.
+        /// </summary>
+        /// <param name="condition">Warunek, który ma być spełniony.</param>
+        /// <param name="message">Komunikat wyjątku w przypadku niepowodzenia asercji.</param>
         private static void DebugAssert(bool condition, string message)
         {
             if (!condition)
                 throw new Exception("Assert failed: " + message);
         }
 
-        // Fałszywe repozytorium do testów TransferService
+        /// <summary>
+        /// Fałszywe repozytorium implementujące <see cref="IDistributedTransferRepository"/>,
+        /// służące do weryfikacji wywołania metody TransferDistributed w testach <see cref="TransferService"/>.
+        /// </summary>
         private class FakeDistributedRepo : IDistributedTransferRepository
         {
+            /// <summary>
+            /// Flaga informująca, czy metoda <see cref="TransferDistributed"/> została wywołana.
+            /// </summary>
             public bool WasCalled { get; private set; } = false;
+
+            /// <summary>
+            /// Symuluje wykonanie transferu rozproszonego, ustawiając flagę WasCalled na true.
+            /// </summary>
+            /// <param name="fromAccId">ID konta źródłowego.</param>
+            /// <param name="toAccId">ID konta docelowego.</param>
+            /// <param name="amount">Kwota do przelania.</param>
             public void TransferDistributed(int fromAccId, int toAccId, decimal amount)
             {
                 WasCalled = true;

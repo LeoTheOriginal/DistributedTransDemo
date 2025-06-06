@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TransDemo.UI.App" Collapsed="true">
+    <Position X="29" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.UI.MainWindow">
+    <Position X="11.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TransDemo.UI.Views.DashboardView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\DashboardView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.Views.HistoryView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\HistoryView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.Views.SearchCustomerView" BaseTypeListCollapsed="true">
+    <Position X="16" Y="16.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\SearchCustomerView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.Views.SettingsView" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\SettingsView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.Views.TransfersView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\TransfersView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.BaseViewModel">
+    <Position X="21" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.DashboardTabViewModel">
+    <Position X="17.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\DashboardTabViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.HistoryTabViewModel">
+    <Position X="20.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\HistoryTabViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.HistoryViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAQAAAAgkAEAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\HistoryViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.MainViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACCAAQAIAAAAAAIADAAAAAgAEAAEAAAAAAAIAAAQA=</HashCode>
+      <FileName>ViewModels\MainViewModels.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.RelayCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.RelayCommand&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.SearchCustomerViewModel">
+    <Position X="20.5" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAEAAAAASggQAAAAAAAAAAAAAAAAAAEAIAAAAAAEAAk=</HashCode>
+      <FileName>ViewModels\SearchCustomerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.SettingsViewModel">
+    <Position X="17.5" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QIAAAAAAADAAAQgAgBAAAAAAAEAAAAAAAAAAQCAABAA=</HashCode>
+      <FileName>ViewModels\SettingsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.TabItemViewModel">
+    <Position X="20.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\TabItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.TransfersTabViewModel">
+    <Position X="23" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\TransfersTabViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.UI.ViewModels.TransfersViewModel">
+    <Position X="23.5" Y="8.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAQAQAAEAQUAAJBBAAAAoAAIACAAABAACAFAAE=</HashCode>
+      <FileName>ViewModels\TransfersViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DashboardViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="DashboardViewModel.DashboardChartType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ViewModels\DashboardViewModel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAgYAAAQAAAAAAAAoBEAAAAogAlAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>ViewModels\DashboardViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.Models.AppSettings" Collapsed="true">
+    <Position X="30.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AppSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.UI.Models.DbConnectionSetting" Collapsed="true">
+    <Position X="27.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAEAAAAQAAAAAAAAAIAAAEAACAQQAAgAAAAA=</HashCode>
+      <FileName>Models\DBConnectionSetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.UI.Converters.BranchIdToNameConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\BranchIdToNameConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.Converters.ChartTypeToVisibilityConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ChartTypeToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.Converters.NullToBoolConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\NullToBoolConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.UI.Behaviors.PasswordBoxHelper" Collapsed="true">
+    <Position X="29" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBABAAAAAAAIQAAEBAAAAAAIABAgAAAAAAAAAACgAAA=</HashCode>
+      <FileName>Behaviors\PasswordBoxHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlBranchClientRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlAccountRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlCentralBankRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlCustomerRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlDistributedTransferRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Data.Repositories.SqlHistoryRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TransDemo.Logic.Services.DashboardStatsService" Collapsed="true">
+    <Position X="32.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Logic.Services.HistoryQueryService" Collapsed="true">
+    <Position X="30.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Logic.Services.TransactionStatsService" Collapsed="true">
+    <Position X="27.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Logic.Services.TransferService" Collapsed="true">
+    <Position X="29" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="StatisticsQueryService" Collapsed="true">
+    <Position X="34.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Models.Account" Collapsed="true">
+    <Position X="27.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Models.BranchTxnShare" Collapsed="true">
+    <Position X="34.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Models.Customer" Collapsed="true">
+    <Position X="27.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Models.DailyBalanceStat" Collapsed="true">
+    <Position X="29" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Models.DailyTransactionStat" Collapsed="true">
+    <Position X="30.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Models.HistoryEntry" Collapsed="true">
+    <Position X="29" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TransDemo.Models.TopCustomerStat" Collapsed="true">
+    <Position X="36" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Window">
+    <Position X="13.25" Y="0.75" Width="2.75" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="TransDemo.Data.Repositories.IAccountRepository" Collapsed="true">
+    <Position X="27.25" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.IBranchClientRepository" Collapsed="true">
+    <Position X="29" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.ICentralBankRepository" Collapsed="true">
+    <Position X="30.75" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.ICustomerRepository" Collapsed="true">
+    <Position X="32.5" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.IDistributedTransferRepository" Collapsed="true">
+    <Position X="34.25" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TransDemo.Data.Repositories.IHistoryRepository" Collapsed="true">
+    <Position X="36" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
