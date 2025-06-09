@@ -105,7 +105,7 @@ BEGIN
         VALUES (
             N'Transfer z ' + @fromName + ' (' + @fromAccNo + ')'
             + N' do ' + @toName + ' (' + @toAccNo + ')'
-            + N' - kwota: ' + CAST(@Amount AS NVARCHAR)
+            + N' – kwota: ' + CAST(@Amount AS NVARCHAR)
         );
     END TRY
     BEGIN CATCH

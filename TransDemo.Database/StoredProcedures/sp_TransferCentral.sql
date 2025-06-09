@@ -15,7 +15,7 @@ BEGIN
         BEGIN
  
             ROLLBACK TRANSACTION;
-            RAISERROR(N'Niewystarczaj?ce ?rodki na ko?cie ?ród?owym.', 16, 1);
+            RAISERROR(N'Niewystarczaj?ce ?rodki na koncie ?ód?owym.', 16, 1);
             RETURN;
         END
 
